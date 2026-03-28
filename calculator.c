@@ -28,3 +28,14 @@ int precedence(char op) {
     return 0;
 }
 
+// ---------- APPLY OP ----------
+double applyOp(double a, double b, char op) {
+    switch(op) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': return b != 0 ? a / b : 0;
+        case '^': return pow(a, b);
+    }
+    return 0;
+}
