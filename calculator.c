@@ -160,3 +160,16 @@ void emiCalc() {
 
     printf("EMI = %.2lf\n", emi);
 }
+
+// ---------- BMI ----------
+void bmiCalc() {
+    double w, h;
+
+    printf("Enter weight (kg): ");
+    scanf("%lf", &w);
+
+    printf("Enter height (m): ");
+    scanf("%lf", &h);
+
+    printf("BMI = %.2lf\n", w / (h * h));
+}
