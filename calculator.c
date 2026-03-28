@@ -121,3 +121,21 @@ void scientificCalc() {
         case 4: printf("Result = %.2lf\n", log10(x)); break;
     }
 }
+
+// ---------- UNIT CONVERSION ----------
+void unitConversion() {
+    int choice;
+    double val;
+
+    printf("\n1. KM → M\n2. M → KM\n3. Inch → CM\nChoice: ");
+    scanf("%d", &choice);
+
+    printf("Enter value: ");
+    scanf("%lf", &val);
+
+    switch(choice) {
+        case 1: printf("Result = %.2lf m\n", val * 1000); break;
+        case 2: printf("Result = %.2lf km\n", val / 1000); break;
+        case 3: printf("Result = %.2lf cm\n", val * 2.54); break;
+    }
+}
