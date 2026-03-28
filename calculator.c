@@ -139,3 +139,24 @@ void unitConversion() {
         case 3: printf("Result = %.2lf cm\n", val * 2.54); break;
     }
 }
+
+// ---------- EMI ----------
+void emiCalc() {
+    double P, r;
+    int n;
+
+    printf("Enter Principal: ");
+    scanf("%lf", &P);
+
+    printf("Enter annual rate (%%): ");
+    scanf("%lf", &r);
+
+    printf("Enter months: ");
+    scanf("%d", &n);
+
+    r = r / (12 * 100);
+
+    double emi = (P * r * pow(1+r, n)) / (pow(1+r, n) - 1);
+
+    printf("EMI = %.2lf\n", emi);
+}
