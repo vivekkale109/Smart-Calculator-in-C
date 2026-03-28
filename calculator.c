@@ -80,3 +80,25 @@ void infixToPostfix(char* exp, char* output) {
     output[k] = '\0';
 }
 
+// ---------- POSTFIX EVALUATION ----------
+double evaluatePostfix(char* exp) {
+    int i;
+    valTop = -1;
+
+    for(i = 0; exp[i]; i++) {
+        if (isdigit(exp[i])) {
+            double num = 0;
+            while (isdigit(exp[i])) {
+                num = num * 10 + (exp[i] - '0');
+                i++;
+            }
+            pushVal(num);
+        }
+        else if (strchr("+-*/^", exp[i])) {
+            double b = popVal();
+            double a = popVal();
+            pushVal(applyOp(a, b, exp[i]));
+        }
+    }
+    return popVal();
+}
