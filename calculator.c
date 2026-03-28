@@ -39,3 +39,44 @@ double applyOp(double a, double b, char op) {
     }
     return 0;
 }
+
+// ---------- INFIX → POSTFIX ----------
+void infixToPostfix(char* exp, char* output) {
+    int i, k = 0;
+    top = -1;
+
+    for(i = 0; exp[i]; i++) {
+        if (isdigit(exp[i])) {
+            while (isdigit(exp[i]) || exp[i] == '.') {
+                output[k++] = exp[i++];
+            }
+            output[k++] = ' ';
+            i--;
+        }
+        else if (exp[i] == '(') {
+            pushOp(exp[i]);
+        }
+        else if (exp[i] == ')') {
+            while (top != -1 && peekOp() != '(') {
+                output[k++] = popOp();
+                output[k++] = ' ';
+            }
+            popOp();
+        }
+        else if (strchr("+-*/^", exp[i])) {
+            while (top != -1 && precedence(peekOp()) >= precedence(exp[i])) {
+                output[k++] = popOp();
+                output[k++] = ' ';
+            }
+            pushOp(exp[i]);
+        }
+    }
+
+    while (top != -1) {
+        output[k++] = popOp();
+        output[k++] = ' ';
+    }
+
+    output[k] = '\0';
+}
+
