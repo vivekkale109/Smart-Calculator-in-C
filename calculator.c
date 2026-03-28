@@ -103,3 +103,21 @@ double evaluatePostfix(char* exp) {
     return popVal();
 }
 
+// ---------- SCIENTIFIC ----------
+void scientificCalc() {
+    int choice;
+    double x;
+
+    printf("\n1. sqrt\n2. sin\n3. cos\n4. log10\nChoice: ");
+    scanf("%d", &choice);
+
+    printf("Enter value: ");
+    scanf("%lf", &x);
+
+    switch(choice) {
+        case 1: printf("Result = %.2lf\n", sqrt(x)); break;
+        case 2: printf("Result = %.2lf\n", sin(x)); break;
+        case 3: printf("Result = %.2lf\n", cos(x)); break;
+        case 4: printf("Result = %.2lf\n", log10(x)); break;
+    }
+}
