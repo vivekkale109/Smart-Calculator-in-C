@@ -19,3 +19,12 @@ char peekOp() { return opStack[top]; }
 
 void pushVal(double val) { valStack[++valTop] = val; }
 double popVal() { return valStack[valTop--]; }
+
+// ---------- PRECEDENCE ----------
+int precedence(char op) {
+    if (op == '^') return 3;
+    if (op == '*' || op == '/') return 2;
+    if (op == '+' || op == '-') return 1;
+    return 0;
+}
+
