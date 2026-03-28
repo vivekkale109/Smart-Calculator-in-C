@@ -173,3 +173,56 @@ void bmiCalc() {
 
     printf("BMI = %.2lf\n", w / (h * h));
 }
+
+// ---------- MAIN ----------
+int main() {
+    int choice;
+    char infix[MAX], postfix[MAX];
+
+    while(1) {
+        printf("\n===== SMART CALCULATOR =====\n");
+        printf("1. Arithmetic (Expression)\n");
+        printf("2. Scientific\n");
+        printf("3. Unit Conversion\n");
+        printf("4. EMI Calculator\n");
+        printf("5. BMI Calculator\n");
+        printf("6. Exit\n");
+
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+        getchar(); // clear buffer
+
+        switch(choice) {
+            case 1:
+                printf("Enter expression: ");
+                fgets(infix, MAX, stdin);
+
+                infixToPostfix(infix, postfix);
+                printf("Postfix: %s\n", postfix);
+                printf("Result = %.2lf\n", evaluatePostfix(postfix));
+                break;
+
+            case 2:
+                scientificCalc();
+                break;
+
+            case 3:
+                unitConversion();
+                break;
+
+            case 4:
+                emiCalc();
+                break;
+
+            case 5:
+                bmiCalc();
+                break;
+
+            case 6:
+                return 0;
+
+            default:
+                printf("Invalid choice\n");
+        }
+    }
+}
