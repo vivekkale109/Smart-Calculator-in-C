@@ -105,7 +105,7 @@ Result = 29.00
 * Support expressions like `sin(30) + sqrt(16)`
 * Add history (file storage)
 * Improve UI (colors / Linux-style interface)
-* Add matrix operations & graph plotting
+* Add matrix operations 
 
 ---
 
